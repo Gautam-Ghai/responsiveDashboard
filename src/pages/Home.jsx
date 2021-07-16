@@ -59,9 +59,9 @@ const renderTable = latestTransactions.map((data, index) => (
 
 export default function Home() {
   return (
-    <Grid container spacing={4}>
+    <Grid container spacing={1}>
       <Grid item xs={12} md={8} lg={9}>
-        <Grid container spacing={2}>
+        <Grid container spacing={3}>
           {renderCards}
           <Grid item xs={12}>
             <Chart

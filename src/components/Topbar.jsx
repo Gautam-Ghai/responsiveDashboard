@@ -8,17 +8,16 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Hidden from "@material-ui/core/Hidden";
-import CloseIcon from '@material-ui/icons/Close';
-import Badge from '@material-ui/core/Badge';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import MoreIcon from '@material-ui/icons/MoreVert';
+import CloseIcon from "@material-ui/icons/Close";
+import Badge from "@material-ui/core/Badge";
+import MenuItem from "@material-ui/core/MenuItem";
+import Menu from "@material-ui/core/Menu";
+import AccountCircle from "@material-ui/icons/AccountCircle";
+import MailIcon from "@material-ui/icons/Mail";
+import NotificationsIcon from "@material-ui/icons/Notifications";
+import MoreIcon from "@material-ui/icons/MoreVert";
 
 export default function Topbar(props) {
-
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -42,14 +41,14 @@ export default function Topbar(props) {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  const menuId = 'primary-search-account-menu';
+  const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
-      anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+      anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
       id={menuId}
       keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+      transformOrigin={{ vertical: "top", horizontal: "right" }}
       open={isMenuOpen}
       onClose={handleMenuClose}
       getContentAnchorEl={null}
@@ -59,14 +58,14 @@ export default function Topbar(props) {
     </Menu>
   );
 
-  const mobileMenuId = 'primary-search-account-menu-mobile';
+  const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+      anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
       id={mobileMenuId}
       keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+      transformOrigin={{ vertical: "top", horizontal: "right" }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
       getContentAnchorEl={null}
@@ -103,50 +102,50 @@ export default function Topbar(props) {
 
   return (
     <>
-    <AppBar position="fixed" className={props.classes.appBar}>
-      <Toolbar>
-        <IconButton
-          color="inherit"
-          aria-label="open drawer"
-          onClick={props.handleDrawerToggle}
-          edge="start"
-          className={props.classes.xsButton}
-        >
-          <MenuIcon />
-        </IconButton>
-        <Hidden lgUp xsDown implementation="css">
-          {!props.open ? (
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              onClick={props.handleDrawerOpen}
-              edge="start"
-              className={clsx(props.classes.menuButton, {
-                [props.classes.hide]: props.open,
-              })}
-            >
-              <MenuIcon />
-            </IconButton>
-          ) : (
-            <IconButton
+      <AppBar position="fixed" className={props.classes.appBar}>
+        <Toolbar>
+          <IconButton
             color="inherit"
-              aria-label="close drawer"
-              edge="start"
-              onClick={props.handleDrawerClose}
-              className={clsx(props.classes.menuButton, {
-                [props.classes.hide]: !props.open,
-              })}
-            >
-              <CloseIcon />
-            </IconButton>
-          )}
-        </Hidden>
+            aria-label="open drawer"
+            onClick={props.handleDrawerToggle}
+            edge="start"
+            className={props.classes.xsButton}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Hidden lgUp xsDown implementation="css">
+            {!props.open ? (
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                onClick={props.handleDrawerOpen}
+                edge="start"
+                className={clsx(props.classes.menuButton, {
+                  [props.classes.hide]: props.open,
+                })}
+              >
+                <MenuIcon />
+              </IconButton>
+            ) : (
+              <IconButton
+                color="inherit"
+                aria-label="close drawer"
+                edge="start"
+                onClick={props.handleDrawerClose}
+                className={clsx(props.classes.menuButton, {
+                  [props.classes.hide]: !props.open,
+                })}
+              >
+                <CloseIcon />
+              </IconButton>
+            )}
+          </Hidden>
 
-        <Typography variant="h6" noWrap>
-          Responsive Sidebar
-        </Typography>
-        <div className={props.classes.grow} />
-        <div className={props.classes.sectionDesktop}>
+          <Typography variant="h6" noWrap>
+            Responsive Dashboard
+          </Typography>
+          <div className={props.classes.grow} />
+          <div className={props.classes.sectionDesktop}>
             <IconButton aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="secondary">
                 <MailIcon />
@@ -168,7 +167,7 @@ export default function Topbar(props) {
               <AccountCircle />
             </IconButton>
           </div>
-        <div className={props.classes.sectionMobile}>
+          <div className={props.classes.sectionMobile}>
             <IconButton
               aria-label="show more"
               aria-controls={mobileMenuId}
@@ -179,10 +178,10 @@ export default function Topbar(props) {
               <MoreIcon />
             </IconButton>
           </div>
-      </Toolbar>
-    </AppBar>
-    {renderMobileMenu}
-    {renderMenu}
+        </Toolbar>
+      </AppBar>
+      {renderMobileMenu}
+      {renderMenu}
     </>
   );
 }

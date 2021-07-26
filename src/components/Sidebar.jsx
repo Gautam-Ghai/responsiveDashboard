@@ -1,5 +1,6 @@
 import React from "react";
 import clsx from "clsx";
+import { Link } from "react-router-dom";
 
 //Material-UI
 import Drawer from "@material-ui/core/Drawer";
@@ -31,18 +32,25 @@ export default function Sidebar(props) {
     <div>
       <div className={props.classes.toolbar} />
       <List>
-        <ListItem button>
-          <ListItemIcon>
-            <Home />
-          </ListItemIcon>
-          <ListItemText>Home</ListItemText>
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <Timeline />
-          </ListItemIcon>
-          <ListItemText>Analyctics</ListItemText>
-        </ListItem>
+        <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+          <ListItem button>
+            <ListItemIcon>
+              <Home />
+            </ListItemIcon>
+            <ListItemText>Home</ListItemText>
+          </ListItem>
+        </Link>
+        <Link
+          to="/analytics"
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          <ListItem button>
+            <ListItemIcon>
+              <Timeline />
+            </ListItemIcon>
+            <ListItemText>Analyctics</ListItemText>
+          </ListItem>
+        </Link>
         <ListItem button>
           <ListItemIcon>
             <TrendingUp />
@@ -50,12 +58,14 @@ export default function Sidebar(props) {
           <ListItemText>Sales</ListItemText>
         </ListItem>
         <Divider />
-        <ListItem button>
-          <ListItemIcon>
-            <PermIdentity />
-          </ListItemIcon>
-          <ListItemText>Users</ListItemText>
-        </ListItem>
+        <Link to="/users" style={{ textDecoration: "none", color: "inherit" }}>
+          <ListItem button>
+            <ListItemIcon>
+              <PermIdentity />
+            </ListItemIcon>
+            <ListItemText>Users</ListItemText>
+          </ListItem>
+        </Link>
         <ListItem button>
           <ListItemIcon>
             <Storefront />

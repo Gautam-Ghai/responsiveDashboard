@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 //Material-UI
 import { makeStyles } from "@material-ui/core/styles";
@@ -10,6 +11,8 @@ import Sidebar from "./components/Sidebar";
 
 //Pages
 import Home from "./pages/Home";
+import Users from "./pages/Users";
+import Analytics from "./pages/Analytics";
 
 const drawerWidth = 240;
 
@@ -110,28 +113,40 @@ export default function Main(props) {
   };
 
   return (
-    <div className={classes.root}>
-      <CssBaseline />
+    <Router>
+      <div className={classes.root}>
+        <CssBaseline />
 
-      <Topbar
-        classes={classes}
-        open={open}
-        handleDrawerToggle={handleDrawerToggle}
-        handleDrawerClose={handleDrawerClose}
-        handleDrawerOpen={handleDrawerOpen}
-      />
+        <Topbar
+          classes={classes}
+          open={open}
+          handleDrawerToggle={handleDrawerToggle}
+          handleDrawerClose={handleDrawerClose}
+          handleDrawerOpen={handleDrawerOpen}
+        />
 
-      <Sidebar
-        classes={classes}
-        open={open}
-        mobileOpen={mobileOpen}
-        handleDrawerToggle={handleDrawerToggle}
-      />
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-        {/* Switch */}
-        <Home />
-      </main>
-    </div>
+        <Sidebar
+          classes={classes}
+          open={open}
+          mobileOpen={mobileOpen}
+          handleDrawerToggle={handleDrawerToggle}
+        />
+        <main className={classes.content}>
+          <div className={classes.toolbar} />
+          {/* Switch */}
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/users">
+              <Users />
+            </Route>
+            <Route exact path="/analytics">
+              <Analytics />
+            </Route>
+          </Switch>
+        </main>
+      </div>
+    </Router>
   );
 }
